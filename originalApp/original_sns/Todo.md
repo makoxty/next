@@ -1,0 +1,1 @@
+borderの色をtailwind.config.jsで定義した色で指定したい

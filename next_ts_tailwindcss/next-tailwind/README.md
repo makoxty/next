@@ -1,1 +1,0 @@
-npx create-next-app next-tailwind -e with-tailwindcss
