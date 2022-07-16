@@ -1,11 +1,15 @@
 import { NextPage } from "next";
 import React from "react";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const AsideTweetArea: NextPage = () => {
   return (
-    <div tw="flex-[0.35] ml-7 mt-7">
-      ・Twitter APIを使って選択した技術のツイートを表示 <br />
-      ・ITニュースを表示
+    <div tw="ml-7 mt-7">
+      <TwitterTimelineEmbed
+        sourceType="profile"
+        screenName="reactjs"
+        options={{ height: "100vh" }}
+      />
     </div>
   );
 };

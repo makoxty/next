@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import tw from "twin.macro";
+import tw, { css } from "twin.macro";
 import {
   AiOutlineHome,
   AiOutlineSearch,
@@ -15,6 +15,7 @@ import {
 import Timeline from "../../../pages/sidemenu/Timeline";
 import { NextPage } from "next";
 import AsideTweetArea from "./AsideTweetArea";
+import Profile from "../../../pages/sidemenu/Profile";
 
 interface Props {
   children: React.ReactNode;
@@ -53,26 +54,45 @@ const Sidemenu = ({ children }: Props) => {
         TargetPage = Timeline;
         break;
       // case SEARCH:
-      // return <Search />
+      //   TargetPage = Search
+      //   break;
       // case NOTICE:
-      //   return <Notice />
-      // case PROFILE:
-      //   return <Profile />
+      //   TargetPage = Notice
+      //   break;
+      case PROFILE:
+        TargetPage = Profile;
+        break;
     }
+
     return (
-      <div tw="flex-[0.45] mt-7">
+      <div
+        css={selectMenu === TIMELINE ? tw`flex-[0.5]` : tw`flex-[0.8]`}
+        tw="mt-7"
+      >
         <TargetPage />
       </div>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectMenu]);
+
+  const viewContents = useMemo(
+    () => (
+      <>
+        {selectMenu === TIMELINE && (
+          <div tw="flex-[0.3]">
+            <AsideTweetArea />
+          </div>
+        )}
+      </>
+    ),
+    [selectMenu]
+  );
   return (
-    <div tw="flex ml-5">
+    <div tw="flex ml-4">
       <div tw="flex-[0.2] h-[100vh] border-solid  border-t-0 border-b-0 border-l-0 border-r-blue-600">
         {sideMenu}
       </div>
       {selectMenuChildren}
-      {selectMenu === TIMELINE && <AsideTweetArea />}
+      {viewContents}
     </div>
   );
 };

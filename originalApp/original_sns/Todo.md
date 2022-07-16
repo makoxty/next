@@ -1,1 +1,2 @@
 borderの色をtailwind.config.jsで定義した色で指定したい
+Profile.tsxでプロフィール写真のrountedが効かないから丸くならない
