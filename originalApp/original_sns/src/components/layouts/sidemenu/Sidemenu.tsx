@@ -16,6 +16,7 @@ import Timeline from "../../../pages/sidemenu/Timeline";
 import { NextPage } from "next";
 import AsideTweetArea from "./AsideTweetArea";
 import Profile from "../../../pages/sidemenu/Profile";
+import Notice from "../../../pages/sidemenu/Notice";
 
 interface Props {
   children: React.ReactNode;
@@ -56,9 +57,9 @@ const Sidemenu = ({ children }: Props) => {
       // case SEARCH:
       //   TargetPage = Search
       //   break;
-      // case NOTICE:
-      //   TargetPage = Notice
-      //   break;
+      case NOTICE:
+        TargetPage = Notice;
+        break;
       case PROFILE:
         TargetPage = Profile;
         break;

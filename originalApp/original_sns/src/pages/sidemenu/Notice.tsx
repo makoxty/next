@@ -2,38 +2,36 @@ import { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import tw from "twin.macro";
 import AccountCircleIcon from "../../components/icons/AccountCircleIcon";
-import { UserListType } from "../../types/UserList";
+import { NoticeListType } from "../../types/NoticeList";
 
-// タイムライン画面
-const Timeline: NextPage = () => {
-  const [userNameList, setUserNameList] = useState<UserListType[]>();
+const Notice: NextPage = () => {
+  const [noticeList, setNoticeList] = useState<NoticeListType[]>();
 
   useEffect(() => {
-    const testUserList: UserListType[] = [
-      { name: "user1", id: 1, tweet: "tweet1" },
-      { name: "user2", id: 2, tweet: "tweet2" },
+    const testNoticeList: NoticeListType[] = [
+      { name: "user1", id: 1, notice: "お知らせ1" },
+      { name: "user2", id: 2, notice: "お知らせ2" },
     ];
-    setUserNameList(testUserList);
+    setNoticeList(testNoticeList);
   }, []);
-
   return (
     <>
-      {userNameList?.map((user) => (
+      {noticeList?.map((notice) => (
         <div
           tw="border-0 border-b border-solid border-color[blue] mt-3 pb-2"
-          key={user.id}
+          key={notice.id}
         >
           <div tw="flex items-center ml-2">
             <div tw="w-14">
               <AccountCircleIcon height="50px" />
             </div>
-            <div>{user.name}</div>
+            <div>{notice.name}</div>
           </div>
-          <div tw="ml-16">{user.tweet}</div>
+          <div tw="ml-16">{notice.notice}</div>
         </div>
       ))}
     </>
   );
 };
 
-export default Timeline;
+export default Notice;

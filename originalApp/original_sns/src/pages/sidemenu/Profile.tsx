@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import tw from "twin.macro";
-
+// Myプロフィール画面
 const Profile: NextPage = () => {
   const [userInfo, setUserInfo] = useState({
     userName: "",
@@ -23,7 +24,9 @@ const Profile: NextPage = () => {
         { id: 2, description: "2回目" },
       ],
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div tw="ml-2">
       <div tw="w-full">
@@ -42,6 +45,7 @@ const Profile: NextPage = () => {
           height={"30x"}
         />
       </div>
+      <div>テーマ：ダークモード / ホワイトモート</div>
       <div>{userInfo.userName}</div>
       <div tw="mt-3">@{userInfo.userId}</div>
       <div tw="mt-3">{userInfo.affiliationGr}</div>
