@@ -24,6 +24,33 @@ interface Props {
 const Sidemenu = ({ children }: Props) => {
   const [selectMenu, setSelectMenu] = useState(TIMELINE);
 
+  // サイドメニューはこっちで実装できた方が見やすいと思う
+  // const sideMenuList = useMemo(
+  //   () => [
+  //     {
+  //       constMenuName: TIMELINE,
+  //       iconName: AiOutlineHome,
+  //       menuName: "タイムライン",
+  //     },
+  //     {
+  //       constMenuName: SEARCH,
+  //       iconName: AiOutlineSearch,
+  //       menuName: "探す",
+  //     },
+  //     {
+  //       constMenuName: NOTICE,
+  //       iconName: AiOutlineBell,
+  //       menuName: "通知",
+  //     },
+  //     {
+  //       constMenuName: PROFILE,
+  //       iconName: AiOutlineUser,
+  //       menuName: "Myプロフィール",
+  //     },
+  //   ],
+  //   []
+  // );
+
   const sideMenu = useMemo(
     () => (
       <div tw="flex flex-col mt-7">

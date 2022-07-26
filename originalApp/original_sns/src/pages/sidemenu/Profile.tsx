@@ -9,7 +9,7 @@ const Profile: NextPage = () => {
     userId: "",
     selfIntroduction: "",
     affiliationGr: "",
-    postHistory: [""],
+    postHistory: [{ id: 0, description: "" }],
   });
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Profile: NextPage = () => {
           height={"30x"}
         />
       </div>
-      <div>テーマ：ダークモード / ホワイトモート</div>
+      <div>モード：ダーク / ホワイト</div>
       <div>{userInfo.userName}</div>
       <div tw="mt-3">@{userInfo.userId}</div>
       <div tw="mt-3">{userInfo.affiliationGr}</div>
